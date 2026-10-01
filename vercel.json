@@ -2,10 +2,13 @@
   "version": 2,
   "functions": {
     "server.js": {
-      "includeFiles": ["public/**"]
+      "includeFiles": "public/**"
     }
   },
   "routes": [
-    { "src": "/(.*)", "dest": "server.js" }
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
+    }
   ]
 }
