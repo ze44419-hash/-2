@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0F172A" />
+<title>بوابة ولي الأمر</title>
+<link rel="preload" href="/fonts/tajawal-arabic-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <div class="brand">
+      <span class="brand-mark" id="brand-mark" aria-hidden="true">م</span>
+      <span class="brand-name" id="center-name">المركز التعليمي</span>
+    </div>
+    <!-- مكان اسم المدرس: بيتملي من TEACHER_NAME في .env (أو من جدول المجموعات) -->
+    <p class="teacher-chip" id="teacher-chip" hidden>
+      <span>المدرس</span>
+      <strong id="teacher-name"></strong>
+    </p>
+  </div>
+</header>
+
+<main>
+  <!-- ============ شاشة إدخال الكود ============ -->
+  <section id="lookup-view" class="lookup">
+    <div class="wrap lookup-grid">
+      <div class="lookup-copy">
+        <aside class="pill">
+          <span>الدرجات والحضور والاشتراك في مكان واحد</span>
+          <a href="#code-input" aria-label="اكتب كود الطالب">اكتب الكود
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </aside>
+        <h1>تقرير مستوى الطالب في صفحة واحدة</h1>
+        <p>اكتب كود الطالب المطبوع على الكارنيه لتشوف الدرجات والمستوى ونسبة الحضور وحالة الاشتراك.</p>
+      </div>
+
+      <form id="lookup-form" class="code-card" autocomplete="off" novalidate>
+        <label for="code-input" class="code-label">كود الطالب</label>
+        <input id="code-input" name="code" type="text" inputmode="text" dir="ltr"
+               autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="40"
+               placeholder="مثال: 482913" aria-describedby="code-hint code-error" />
+        <p id="code-hint" class="code-hint">الرقم المكتوب أسفل الباركود على الكارنيه.</p>
+        <p id="code-error" class="code-error" role="alert" hidden></p>
+        <button type="submit" id="code-submit" class="btn-primary">عرض التقرير</button>
+        <div class="card-barcode" aria-hidden="true"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ تقرير الطالب ============ -->
+  <section id="report-view" class="wrap report" hidden aria-live="polite"></section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><span id="footer-name">المركز التعليمي</span></div>
+  <div class="footer-bar">
+    <p class="footer-content">
+      Developed by <span class="brand">Coder Zone Academy</span> &ndash; Supervised by <span class="brand">Eng. Zeyad Emara</span>
+    </p>
+  </div>
+</footer>
+
+<script src="/vendor/chart.umd.js"></script>
+<script src="/app.js"></script>
+<script src="/fx.js" defer></script>
+</body>
+</html>
